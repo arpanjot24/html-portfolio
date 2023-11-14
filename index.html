@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Player with Comments</title>
+        <link rel="stylesheet" href="VIDEO/style.css">
+    </head>
+
+    <body>
+        <div class="sbar" id="sidebar"  >
+            <div class="sb-header" style="display: flex;  ">
+                <a  id="tooglebutton2" ><img class="sbicon" src="VIDEO/icons/icons8-hamburger-menu.svg" /></a>
+                <a><img class="mainlogohea2" src="VIDEO/YouTube-Logo.wine.png"  alt="alt" /> </a>
+            </div>
+            <div >
+
+                <a class="b" id="c"><img id="sb-icon-sec" src="VIDEO/icons/icons8-home.svg" height="24" width="24" alt="alt"/>home</a>
+                <a class="b" id="c1">reel</a>
+                <a class="b" id="c2">subscription</a>
+                <a class="b b-bottom" id="c3">setting</a>
+                <a>Subscriptions</a>
+
+            </div>
+        </div>
+
+
+
+
+        <header>
+            <div  id="shb">
+                <a class="sbiconmain" id="tooglebutton" ><img  id="im" src="VIDEO/icons/icons8-hamburger-menu.svg" /></a>
+            </div>
+            <div class="sb">
+                <a>
+                    <img class="mainlogohea" src="VIDEO/YouTube-Logo.wine.png"  alt="alt" />
+                </a>
+
+                <input class="inp-header" ><!-- comment -->
+                <button id="btn-header"><img id="search-logo" src="VIDEO/icons/icons8-search.svg"/></button>
+                <a class="mike-icon">m</a>
+                <div  class="a-header" >
+
+                    <a class="a-header-ind">q</a>
+                    <a class="a-header-ind">y</a>
+                    <a class="a-header-ind">z</a>
+                    <a class="a-header-ind  a-header-last"><img id="search-logo" src="VIDEO/icons/icons8-login-50.png"/></a>
+                </div>
+            </div>
+
+
+        </header>
+        <main>
+            <div class="maindiv" style="display: flex">
+                <div class="sb-main" >
+                    <div class="sb-ul">
+                        <a class="b2" onclick="sbiconfocus(this, 'grey'); changeColor(this, 'green')" onmouseover="changeColor(this, 'red')" onmouseout="changeColor(this, 'black')">
+                            <img src="VIDEO/icons/icons8-home.svg" height="24" width="24" alt="alt" />
+                            <span>home</span>
+                        </a>
+                        <a class="b2">reel</a>
+                        <a class="b2">subscription</a>
+                        <a class="b2">setting</a>
+
+
+                    </div>
+
+                </div>
+
+
+                <div id="imagecollection">
+
+
+                </div>
+
+            </div>
+            <!--<button id="btn-gen" onclick="generateMorePictures()">More</button>-->
+
+<!--            <div class="comments">
+                <div class="cmblock">
+                    <input id="cmdata" placeholder="Type your comment here" onkeypress="handleKeyPress(event)">
+                </div>
+                <div id="cmtblock">
+                     Existing and future comments will be added here 
+                </div>
+            </div>
+
+            <div id="scrollButtons">
+                <button onclick="seek(-5)">Rewind 5s</button>
+                <button onclick="seek(5)">Forward 5s</button>
+            </div>-->
+
+        </main>
+        
+
+        <script>
+            var myVideo = document.getElementById("video1");
+            var commentInput = document.getElementById("cmdata");
+            var cmtBlock = document.getElementById("cmtblock");
+            var sidebar = document.getElementById('sidebar');
+            var sidebar2 = document.getElementById('tooglebutton2');
+
+            var imageCollection = document.getElementById('imagecollection');
+            var imageCounter = 12; // Start with 8 images
+
+            function generateMorePictures() {
+                for (var i = 0; i < 16; i++) {
+                    var img = document.createElement('img');
+                    img.classList.add('images');
+                    img.src = 'https://source.unsplash.com/random/200x200?sig=' + (imageCounter + i);
+                    img.alt = 'alt';
+                    imageCollection.appendChild(img);
+                }
+
+                imageCounter += 4; // Increment the image counter
+//                alert(imageCounter);
+        }
+
+           function isBottomOfPage() {
+        var lastImage = document.querySelector('.images:last-child');
+        if (lastImage) {
+            var rect = lastImage.getBoundingClientRect();
+            return rect.bottom <= window.innerHeight;
+        }
+        return false;
+    }
+
+            // Event listener for the scroll event
+            window.addEventListener('scroll', function () {
+                if (isBottomOfPage()) {
+//                    alert('at the bottom');
+                    generateMorePictures();
+                }
+            });
+
+            // Initial generation of pictures
+            generateMorePictures();
+
+            function sidebarshow() {
+
+
+//                if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+//                    sidebar.style.display = 'block';
+//                } else {
+//
+//                    sidebar.style.display = 'none';
+//                }
+                // Toggle the 'show' class to trigger the animation
+                sidebar.classList.remove('hide');
+                sidebar.classList.toggle('show');
+
+
+
+                // Check if the sidebar is currently visible
+//                var isSidebarVisible = sidebar.classList.contains('show');
+
+//                If the sidebar is now visible, set the body overflow to hidden to prevent scrolling
+//                if (isSidebarVisible) {
+//                    document.body.style.overflow = 'hidden';
+//                } else {
+//                    sidebar.classList.remove('hide')
+//                    // If the sidebar is not visible, reset the body overflow to its default value
+//                    document.body.style.overflow = '';
+//                }
+
+            }
+            function sidebarshow2() {
+
+                sidebar.classList.remove('show');
+                sidebar.classList.toggle('hide');
+//                sidebar.classList.remove('hide');
+
+
+            }
+            document.getElementById('tooglebutton2').addEventListener('click', function () {
+
+                sidebarshow2();
+
+            });
+
+// Attach the sidebarshow function to the click event of the toggleButton
+            document.getElementById('tooglebutton').addEventListener('click', function () {
+                sidebarshow();
+
+            });
+            function playPause() {
+                if (myVideo.paused) {
+                    myVideo.play();
+                } else {
+                    myVideo.pause();
+                }
+            }
+
+            function cmtclick() {
+                if (commentInput.value.trim() !== '') {
+                    var newComment = document.createElement('div');
+                    newComment.classList.add('comment');
+                    var newElement = document.createElement('input');
+                    newElement.type = 'text';
+                    newElement.value = commentInput.value;
+                    newElement.readOnly = true;
+                    var deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = function () {
+                        cmtBlock.removeChild(newComment);
+                    };
+                    newComment.appendChild(newElement);
+                    newComment.appendChild(deleteButton);
+                    cmtBlock.appendChild(newComment);
+                    commentInput.value = '';
+                }
+            }
+
+            function handleKeyPress(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    cmtclick();
+                }
+            }
+
+            function seek(seconds) {
+                if (!isNaN(myVideo.duration)) {
+                    myVideo.currentTime += seconds;
+                }
+            }
+
+            // Use the loadedmetadata event to ensure the video is ready before seeking
+            myVideo.addEventListener('loadedmetadata', function () {
+                myVideo.play();
+            });
+            function changeColor(element, color) {
+                element.style.color = color;
+            }
+//            function sbiconfocus(element ,color){
+            function sbiconfocus(element, color) {
+                element.style.backgroundColor = color;
+            }
+
+// playing the video on hover
+// Assuming playVideo() is a function that plays the video
+            var video = document.getElementById('video1'); // Replace 'yourVideoId' with the actual ID of your video element
+
+// Check if the video element exists
+            if (video) {
+                // Add a mouseover event listener to the video element
+                video.addEventListener('mouseenter', function () {
+                    // Assuming playVideo() is a function that plays the video
+                    playVideo();
+                });
+                video.addEventListener('mouseleave', function () {
+                    // Assuming playVideo() is a function that plays the video
+                    stopVideo();
+                });
+            }
+
+// Assuming playVideo() is a function that plays the video
+            function playVideo() {
+                var video = document.getElementById('video1'); // Replace 'yourVideoId' with the actual ID of your video element
+
+                // Your logic to play the video goes here
+//                alert('video logic is working');
+//                console.log('Video is played!');
+
+                video.play();
+
+
+
+
+            }
+            function stopVideo() {
+                var video = document.getElementById('video1'); // Replace 'yourVideoId' with the actual ID of your video element
+
+                // Your logic to play the video goes here
+//                alert('video out logic is working');
+//                console.log('Video is played!');
+
+                video.pause();
+                video.currentTime = 0;
+
+
+
+            }
+
+
+
+
+
+        </script>
+    </body>
+</html>

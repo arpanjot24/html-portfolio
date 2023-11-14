@@ -1,0 +1,420 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.sbicon{
+
+    height:30px;
+    width: 30px;
+
+    /*justify-content: center;*/
+    align-content: center;
+
+}
+
+.sbiconmain{
+
+   
+
+    /*justify-content: center;*/
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+    padding-left: 25px;
+    border-radius: 50%;
+    
+    /* Adjust the duration (0.5s) and easing function as needed */
+}
+
+
+#tooglebutton{
+    height:50px;
+    width:50px;
+}
+
+.shortsbar{
+    
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    /*width:100%;*/
+}
+.maindiv{
+    position:absolute;
+    margin-top: 100px;
+    width: 100%;
+    
+}
+#shb{
+    height:80px;
+    width:100px;
+    display: flex;
+    align-items: center;
+}
+#im{
+    height:30px;
+    width:30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    
+    
+    
+}
+#im:hover{
+    background-color: lightgray;
+    border-radius: 50%;
+}
+.b{
+    display: flex;
+
+    align-items: center;
+
+    color: black;
+    /*font-size: 18px;*/
+    padding-bottom:30px;
+
+}
+.b2{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    color: black;
+    /*font-size: 18px;*/
+    padding:30px;
+    border-radius: 20px;
+/*    height:30px;
+    width:30px;*/
+
+}
+.b2 {
+    transition: background-color 0.5s ease; /* Adjust the duration (0.5s) and easing function as needed */
+}
+
+.b2:hover {
+    background-color: lightgray; /* Change 'yourcolor' to the desired background color */
+}
+
+span{
+
+}
+
+.sbar{
+    height:100px;
+    display:block;
+    width: 100%;
+}
+.b-bottom{
+    border-bottom-color: black;
+    border-bottom: solid;
+}
+#sidebar{
+    position: fixed;
+    top: 0;
+    left: -260px; /* Start off-screen */
+    width: 260px;
+    height: 100%;
+    background-color: white;
+    color: #fff;
+    transition: left 0.3s ease;
+    z-index: 1;
+
+
+}
+#sidebar.show {
+    left: 0; /* Slide in from the left when 'show' class is added */
+}
+#sidebar.show.hide{
+    left:-200px
+}
+
+.sb{
+    /*padding-right: 50px;*/
+    background-color: white;
+    color:#3498db;
+    height:100%;
+    width:100%;
+    display: flex;
+
+    align-items: center;
+
+
+}
+.inp-header{
+    padding:10px 10px;
+    margin-left: 170px;
+    padding-left: 200px;
+    border-top-left-radius: 10px; /* Adjust the radius as needed */
+    border-bottom-left-radius: 10px;
+}
+#btn-header{
+
+    padding:10px 10px;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 0;
+
+}
+.a-header{
+    display: flex;
+    /*flex-direction: column;*/
+    background: yellow;
+    /*justify-content: center;*/
+    align-items: center;
+    margin-left: 150px;
+}
+.mike-icon{
+    margin-left:20px;
+
+}
+.a-header-ind{
+    margin-left: 57px;
+}
+.sb-ul{
+    /*position: fixed;*/
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+}
+.sb-header{
+    height:80px;
+    width:100px;
+}
+#tooglebutton2{
+    display: flex;
+    align-items: center;
+}
+.mainlogohea{
+
+    align-content: center;
+    text-align: center;
+    height:80px;
+    width: 100px;
+}
+#search-logo{
+    height:25px;
+    width:25px;
+    
+}
+.mainlogohea2{
+
+    /*flex-direction: column;*/
+    /*background: yellow;*/
+    /*justify-content: center;*/
+    align-items: center;
+    height:80px;
+    width: 120px;
+}
+#sb-icon-sec{
+    margin-right: 40px;
+
+}
+header {
+    position: fixed;
+    background-color: white;
+    color: #fff;
+    /*padding: 10px;*/
+    height:80px;
+    width: 100%;
+    display:flex;
+    z-index: 1000;
+    
+
+
+
+
+
+}
+.sb-main{
+    display:inline-block;
+    height:100px;
+    width:100px;
+
+}
+#video1{
+    display: flex;
+    
+
+    width: 400px;
+    height:400px;
+    margin-top:10px;
+    margin-left: 40px;
+    border-radius: 20px;
+
+}
+.imagecollection{
+    padding-left: 500px;
+    display: flex;
+    height: 600px;
+    width: 1100px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.images{
+    
+     border-radius: 20px;
+    margin-left:50px;
+    margin-bottom:50px;
+    height:200px;
+    width:220px;
+}
+#btn-header{
+    padding:4px 6px;
+}
+#btn-gen{
+    margin-left: 300px;
+    padding-left: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    #imagecollection{
+        /*border: solid;*/
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+    
+}
+
+    .images {
+        height: 230px;
+        width:80%;
+        
+    margin: 10px;
+        
+    }
+    .inp-header{
+        display: none;
+    }
+    #btn-header{
+
+    padding:10px;
+    margin-left: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: #ffffff;
+    
+    
+
+}
+.mike-icon{
+    /*margin-left:20px;*/
+display: none;
+}
+.a-header-ind{
+    display: none;
+}
+.a-header{
+    display: flex;
+    /*flex-direction: column;*/
+    background: white;
+    /*justify-content: center;*/
+    align-items: center;
+    margin-left: 0px;
+}
+.a-header-last{
+    display:block;
+    margin-left: 0px;
+    
+    
+}
+.sb-main{
+    display:none;
+}
+.b{
+    padding-left: 10px;
+}
+.sb-header{
+    padding-left: 10px;
+}
+.mainlogohea{
+    padding-left: 18px;
+    height:100px;
+    width:150px;
+}
+
+#btn-gen{
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom: 20px;
+    background-color: white;
+    color:red;
+    border-radius:15px;
+    margin-left: 150px;
+    
+}
+}
+
+sbicon{
+
+}
+
+.cmblock {
+    text-align: center;
+}
+
+#cmtblock {
+    margin-top: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.comment input {
+    width: calc(100% - 22px);
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.comment button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#scrollButtons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#scrollButtons button {
+    margin: 0 5px;
+    padding-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.a{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+
+}
+.end{
+    width:100%;
+    height:500px;
+    background-color: white;
+}
